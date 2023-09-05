@@ -19,6 +19,7 @@ const Profile = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const location = useLocation().pathname;
+ 
 
   let token;
 
