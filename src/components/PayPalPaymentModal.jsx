@@ -38,7 +38,7 @@ const PayPalPayment = (props) => {
           // use the "body" param to optionally pass additional order information
           // like product ids and quantities
           body: JSON.stringify({
-           price: totalPrice
+           cart: cartList
           })
         }
       );

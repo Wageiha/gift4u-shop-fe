@@ -18,6 +18,8 @@ const Profile = () => {
   const [profile, setProfile] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
 
+  const location = useLocation().pathname;
+
   let token;
 
   if (JSON.parse(localStorage.getItem("my-profile"))) {
@@ -58,7 +60,7 @@ const Profile = () => {
     }
 
      //console.log(Array.from(userData)); 
-     console.log("profile", profile.avatar);
+    /*  console.log("profile", profile.avatar); */
     
 
     axios
@@ -68,7 +70,7 @@ const Profile = () => {
         configuration
       )
       .then((res) => {
-        navigate(0)
+        navigate(location)
         setSuccessMessage(res.data);
       })
       .catch((err) => {

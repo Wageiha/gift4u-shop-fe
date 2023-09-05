@@ -12,15 +12,23 @@
    background: #ffffff5a;
    height:auto;
    flex-direction: column;
-   height: fit-content;
-
-   
-   
-   
-   
+   height: fit-content;  
  }
  
  
+
+ @media screen and (min-width: 992px) {
+  .App {
+      width: 80%;
+      margin: auto;
+  
+    }
+  }
+
+
+
+
+
  .form-container, .login-form , .register-form {
    display: flex;
    flex-direction: column;

@@ -149,7 +149,7 @@ const SelectVoucherPage = () => {
   const submitHandler = ()=> {
     if (savedVoucher.description && !savedVoucher.shops) {
        cartItem = {
-        _id: id? savedCartItem._id : savedVoucher._id,
+        item_id: id? savedCartItem._id : savedVoucher._id,
         name: id? savedCartItem.name : savedVoucher.name,
         category: id? savedCartItem.category : savedVoucher.category,
         card: cardWithPricePath? cardWithPricePath : savedVoucher.card,
@@ -166,7 +166,7 @@ const SelectVoucherPage = () => {
     }
     else if (!savedVoucher.description && savedVoucher.shops){
       cartItem = {
-        _id: id? savedCartItem._id : savedVoucher._id,
+        item_id: id? savedCartItem._id : savedVoucher._id,
         name: id? savedCartItem.name : savedVoucher.name,
         category: id? savedCartItem.category : savedVoucher.category,
         card: cardWithPricePath? cardWithPricePath : savedVoucher.card,
