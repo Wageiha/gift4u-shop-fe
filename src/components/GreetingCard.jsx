@@ -6,7 +6,7 @@ import { greetingCardsList } from "./greetingCards-data.js";
 const GreetingCard = () => {
   const navigate = useNavigate();
   const { category, name, id } = useParams();
-  /* console.log(category,name,id); */
+  /*  console.log(useParams());  */
 
   const [imagePath, setImagePath] = useState("");
   const [displayDiv, setDisplayDiv] = useState("none");
@@ -29,7 +29,7 @@ const GreetingCard = () => {
     if (localStorage.getItem("cart-list")) {
       cartList = JSON.parse(localStorage.getItem("cart-list"));
       if (id) {
-        const indexItem = cartList.findIndex((obj) => obj._id === id);
+        const indexItem = cartList.findIndex((obj) => obj.item_id === id);
         cartList[indexItem].greetingCard = imagePath;
         localStorage.setItem("cart-list", JSON.stringify(cartList));
         return navigate("/shopping-cart");
@@ -42,7 +42,7 @@ const GreetingCard = () => {
   };
 
   return (
-    <>
+    <div style={{paddingBottom:"80px", display:"flex", alignItems:"center", flexDirection:"column"}}>
       <div>
         <div className="greetings-container">
         <h3>
@@ -51,7 +51,6 @@ const GreetingCard = () => {
           </h3>
         </div>
      
-        
           <div
             className="select-greet greetings-container"
             style={{
@@ -67,9 +66,26 @@ const GreetingCard = () => {
               <Image className="greet-img" src={imagePath}></Image>
             </Modal.Body>
           </div>
+          <Button
+        variant="danger"
+        style={{
+          background: "#fedea8fa",
+          padding: "10px 10px",
+          fontWeight: "bold",
+          width: "50%",
+          margin: "20px auto",
+          color: "black",
+          borderRadius: "15px",
+          border: "2px solid #ff9b9b",
+          boxShadow: "#ff9b9b 4px 2px",
+        }}
+        onClick={submitHandler}
+      >
+        {id ? <strong>Proceed to Cart</strong> : <strong>Next Step</strong>}
+      </Button>
 
       </div>
-      <hr />
+
       {greetingCardsList.map((item,index)=>(
         <div
         key={index}
@@ -79,7 +95,7 @@ const GreetingCard = () => {
           flexDirection: "column",
           borderRadius: "25px",
           width: "95%",
-          border: "#fedea8 4px solid"
+          border: "#fedea8 4px solid",
         }}
       >
         <h4 style={{margin:"20px 0"}}>{item.category} Greeting</h4>
@@ -95,8 +111,8 @@ const GreetingCard = () => {
             key={idx}
             src={el}
             style={{
-              maxWidth: "170px",
-              height: "170px",
+              maxWidth: "150px",
+              height: "150px",
               padding: "5px",
               objectFit: "cover",
               margin: "5px",
@@ -110,26 +126,8 @@ const GreetingCard = () => {
       </div>
       ))}
       
-      <hr />
-      <Button
-        variant="danger"
-        style={{
-          background: "#fedea8fa",
-          padding: "10px 10px",
-          fontWeight: "bold",
-          width: "50%",
-          margin: "0,auto",
-          color: "black",
-          borderRadius: "15px",
-          border: "2px solid #ff9b9b",
-          boxShadow: "#ff9b9b 4px 2px",
-          marginBottom: "80px"
-        }}
-        onClick={submitHandler}
-      >
-        {id ? <strong>Proceed to Cart</strong> : <strong>Next Step</strong>}
-      </Button>
-    </>
+  
+    </div>
   );
 };
 

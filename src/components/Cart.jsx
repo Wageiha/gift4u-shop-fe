@@ -6,21 +6,22 @@ import { convertDate } from "./dateConvert.js";
 import PayPalPayment from "./PayPalPaymentModal";
 
 const Cart = () => {
-  let cartList = JSON.parse(localStorage.getItem("cart-list"))?JSON.parse(localStorage.getItem("cart-list")):[];
+  let cartList = JSON.parse(localStorage.getItem("cart-list"))
+    ? JSON.parse(localStorage.getItem("cart-list"))
+    : [];
   const navigate = useNavigate();
   const location = useLocation().pathname;
 
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showPayPalModal, setShowPayPalModal] = useState(false);
-  const [showEmptyCartMessage, setShowEmptyCartMessage] = useState(false)
-
+  const [showEmptyCartMessage, setShowEmptyCartMessage] = useState(false);
 
   const totalPrice = cartList.reduce((acc, el, index) => {
     return acc + el.price * el.quantity;
   }, 0);
 
-  const handleRemove = (item) => {
-    cartList = cartList.filter((el) => el._id !== item._id);
+  const handleRemove = (obj) => {
+    cartList = cartList.filter((el) => el.item_id !== obj.item_id);
     localStorage.setItem("cart-list", JSON.stringify(cartList));
     navigate(location);
   };
@@ -35,7 +36,11 @@ const Cart = () => {
   };
 
   const purchasekHandler = () => {
-   if (!JSON.parse(localStorage.getItem("cart-list")) || !JSON.parse(localStorage.getItem("cart-list")).length>0) return setShowEmptyCartMessage(true)
+    if (
+      !JSON.parse(localStorage.getItem("cart-list")) ||
+      !JSON.parse(localStorage.getItem("cart-list")).length > 0
+    )
+      return setShowEmptyCartMessage(true);
     else if (
       JSON.parse(localStorage.getItem("my-profile")) ||
       JSON.parse(localStorage.getItem("my-app-token"))
@@ -46,12 +51,12 @@ const Cart = () => {
     }
   };
 
-  const editECardHandler = (item) => {
-    navigate(`/${item.category}/${item.name}/egreeting-card/${item._id}`);
+  const editECardHandler = (obj) => {
+    navigate(`/${obj.category}/${obj.name}/egreeting-card/${obj.item_id}`);
   };
 
-  const editVoucherHandler = (item) => {
-    navigate(`/${item.category}/${item.name}/${item._id}`);
+  const editVoucherHandler = (obj) => {
+    navigate(`/${obj.category}/${obj.name}/${obj.item_id}`);
   };
 
   return (
@@ -69,8 +74,14 @@ const Cart = () => {
       >
         My Cart
       </h2>
-      {!JSON.parse(localStorage.getItem("cart-list")) || !JSON.parse(localStorage.getItem("cart-list")).length>0?
-      <div><h4>Your Cart is Empty!</h4></div> : ""}
+      {!JSON.parse(localStorage.getItem("cart-list")) ||
+      !JSON.parse(localStorage.getItem("cart-list")).length > 0 ? (
+        <div>
+          <h4>Your Cart is Empty!</h4>
+        </div>
+      ) : (
+        ""
+      )}
       <div
         style={{
           display: "flex",
@@ -257,18 +268,20 @@ const Cart = () => {
                       {item.location?.join(", ")}
                     </strong>
                   </p>
-                  {item.shops &&  <p
-                    style={{
-                      color: "black",
-                      textAlign: "start",
-                      margin: "0 0 10px 20px"
-                    }}
-                  >
-                    And in the following shops:{" "}
-                    <strong style={{ fontStyle: "italic" }}>
-                      {item.shops?.join(", ")}
-                    </strong>
-                  </p>}
+                  {item.shops && (
+                    <p
+                      style={{
+                        color: "black",
+                        textAlign: "start",
+                        margin: "0 0 10px 20px"
+                      }}
+                    >
+                      And in the following shops:{" "}
+                      <strong style={{ fontStyle: "italic" }}>
+                        {item.shops?.join(", ")}
+                      </strong>
+                    </p>
+                  )}
                 </div>
                 <div
                   style={{
@@ -347,12 +360,14 @@ const Cart = () => {
         <div style={{ width: "100%" }}>
           <Col style={{ display: "flex", flexDirection: "column" }}>
             <Card
-            style={{ backgroundColor:"#8CC0DE",
-            border:"3px solid  #FEDEA8 ",
-                    borderRadius: "15px",
-                    boxShadow: "#FF9B9B 4px 2px",}}
+              style={{
+                backgroundColor: "#8CC0DE",
+                border: "3px solid  #FEDEA8 ",
+                borderRadius: "15px",
+                boxShadow: "#FF9B9B 4px 2px"
+              }}
             >
-              <h3
+              <h4
                 style={{
                   textAlign: "center",
                   margin: "20px 0 20px 20px",
@@ -362,7 +377,7 @@ const Cart = () => {
                 }}
               >
                 Order Summary
-              </h3>
+              </h4>
 
               <div
                 style={{
@@ -433,9 +448,15 @@ const Cart = () => {
                   }}
                   onClick={purchasekHandler}
                 >
-                 Buy now
+                  Buy now
                 </Button>
-                {showEmptyCartMessage && <div><h4 style={{color:"red", marginTop:"10px"}}>Your Cart is Empty!</h4></div>}
+                {showEmptyCartMessage && (
+                  <div>
+                    <h4 style={{ color: "red", marginTop: "10px" }}>
+                      Your Cart is Empty!
+                    </h4>
+                  </div>
+                )}
                 <Button
                   variant="primary"
                   style={{

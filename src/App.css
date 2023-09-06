@@ -330,7 +330,7 @@
 }
 
 .g-4 .card {
- width: 160px;
+ width: 150px;
  height: 250px  ;
  cursor: pointer;
  margin: 12px;
@@ -475,6 +475,7 @@ color: #ff9090;
     margin-top:  15px ;
     background:   #8cc0de ;
     border-radius: 15px;
+    
 }
 
 .greet-img {
@@ -490,7 +491,7 @@ color: #ff9090;
 .greet-img:hover {
   
   
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 
 .cart Button:hover {

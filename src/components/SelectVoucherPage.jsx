@@ -206,7 +206,7 @@ const SelectVoucherPage = () => {
  if (localStorage.getItem("cart-list")) {
    cartList = JSON.parse(localStorage.getItem("cart-list"));
    if (id) {
-     const indexItem = cartList.findIndex(obj => obj._id === id)
+     const indexItem = cartList.findIndex(obj => obj.item_id === id)
      cartList[indexItem] = cartItem
      localStorage.setItem("cart-list", JSON.stringify(cartList));
      window.scrollTo(0,0)

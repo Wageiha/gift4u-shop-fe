@@ -46,7 +46,7 @@ const NavBar = () => {
                   }}
                 />
               )}
-              <h3>Welcome {name.split(" ")[0]}</h3>
+              <h3 style={{fontSize:"18px"}}>Welcome {name.split(" ")[0]}</h3>
             </div>
           )}
 

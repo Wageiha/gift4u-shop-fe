@@ -44,7 +44,7 @@ const cancelHandler = ()=>{
   },[])
 
   return (
-    <div style={{width:"90%", margin:"20px auto 80px",backgroundColor:"#8cc0de8b",
+    <div style={{width:"100%", margin:"20px auto 80px",backgroundColor:"#8cc0de8b",
         border:"3px solid  #fedea8 ",
         borderRadius:"25px",
         
