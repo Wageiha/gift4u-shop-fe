@@ -136,7 +136,7 @@ const Home = () => {
         <div> Our Voucher Collection </div>
       </div>
       <div>
-        <div style={{ width: "95%", margin: "0 auto 80px" }}>
+        <div style={{ width: "100%", margin: "0 auto 80px" }}>
           <VoucherCards />
         </div>
       </div>

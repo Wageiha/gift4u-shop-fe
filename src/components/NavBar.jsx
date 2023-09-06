@@ -22,7 +22,7 @@ const NavBar = () => {
   return (
     <>
       <header className="navbar">
-        <div className="container">
+        <div className="container" style={{display:"flex", justifyContent:"space-between"}}>
           <NavLink to="/home" className="navbar-logo" onClick={closeMobileMenu}>
             <img src="/Gift (3).png" alt="" />
           </NavLink>
@@ -31,7 +31,7 @@ const NavBar = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "100px",
+                marginLeft: "90px",
               }}
             >
               {avatar && (
@@ -42,7 +42,7 @@ const NavBar = () => {
                     width: "50px",
                     height: "50px",
                     borderRadius: "50%",
-                    marginRight: "20px",
+                    marginRight: "10px",
                   }}
                 />
               )}
