@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card, Modal, Image } from "react-bootstrap";
+import { Button, Card, Modal, Image, CloseButton } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { greetingCardsList } from "./greetingCards-data.js";
 
@@ -14,7 +14,7 @@ const GreetingCard = () => {
   const cartItem = JSON.parse(localStorage.getItem("cart-item"))
     ? JSON.parse(localStorage.getItem("cart-item")).cartItem
     : {};
-
+ 
   const showSelectedCardHandler = (item) => {
     setImagePath(item);
     setDisplayDiv("block");
@@ -55,14 +55,14 @@ const GreetingCard = () => {
           <div
             className="select-greet greetings-container"
             style={{
-              display: `${displayDiv}`
-            }}
-             onClick={() => {
-              setDisplayDiv("none");
-              setImagePath("");
+              display: `${displayDiv}`,
+              paddingBottom:"20px"
             }}
           >
-            <Modal.Header closeButton></Modal.Header>
+            <Modal.Header><CloseButton  onClick={() => {
+              setDisplayDiv("none");
+              setImagePath("");
+            }} style={{ padding:"10px"}}/></Modal.Header>
             <Modal.Body className="grid-example">
               <Image className="greet-img" src={imagePath}></Image>
             </Modal.Body>

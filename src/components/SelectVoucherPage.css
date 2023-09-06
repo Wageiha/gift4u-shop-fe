@@ -9,6 +9,15 @@
 
 }
 
+@media screen and (min-width: 992px) {
+    .voucher-cont {
+       width: 80%;
+       margin: auto;
+       
+  
+    }
+  }
+
 .voucher-cont h2 {
 color: #fedea8fa;
 font-weight: bold;
@@ -18,14 +27,17 @@ font-size: 35px;
 
 .voucher-cont .select-img {
     padding: 5px;
-    border: #ff9b9b 2px solid;
+    border: #FF9B9B 2px solid;
     border-radius: 80px;
-    margin-top: 2px;
+    width: 90%;
+    margin: auto;
+    margin-top: 16px;
     
-   
 }
 
-
+.voucher-cont .select-img:hover {
+    transform: scale(1.05);
+    }
 
 .selectPrice {
     background: #8cc0de ; 

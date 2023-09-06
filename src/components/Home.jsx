@@ -28,7 +28,6 @@ const Home = () => {
 
   return (
     <div className="home">
-
       <div>
         <NavLink to="/voucher/search" className="search-bar">
           <div>
@@ -43,25 +42,22 @@ const Home = () => {
       <div className="open-carousel">
         <div className="home-carousel">
           {categoryList.map((el, index) => (
-             <NavLink to = {`voucher/${el.name}`} key={index}>
+            <NavLink to={`voucher/${el.name}`} key={index}>
               <div>
-             <img
-              className="gift-logo"
-              src={el.image}
-              alt=""
-            /> 
-            </div>   
-             </NavLink>
+                <img className="gift-logo" src={el.image} alt="" />
+              </div>
+            </NavLink>
           ))}
         </div>
       </div>
       <br />
 
-       <div className="gift-bar" style={{marginBottom:"20px"}}>
-          {" "}
-          <i className="fa-solid fa-crown"> HOT Gifts! </i>
-        </div>
-      <div onClick={()=>navigate("/hot-gifts/birthday")}>
+      <div className="gift-bar" style={{ marginBottom: "20px" }}>
+        {" "}
+        <i className="fa-solid fa-crown"> HOT Gifts! </i>
+      </div>
+
+      {/*     <div onClick={()=>navigate("/hot-gifts/birthday")}>
         <video className="birth-video" src={videoGif} autoPlay loop muted>
           {" "}
         </video>
@@ -84,14 +80,64 @@ const Home = () => {
             </video>
           </div>
         </div>
+      </div> */}
+
+      <div>
+        <div className="video-container">
+          <div>
+            <video
+              className="birth-video"
+              src={videoGif}
+              autoPlay
+              loop
+              muted
+              onClick={() => navigate("/hot-gifts/birthday")}
+            >
+              {" "}
+            </video>
+            <video
+              className="birth-video2"
+              src={videoGif2}
+              autoPlay
+              loop
+              muted
+              onClick={() => navigate("/hot-gifts/motherday")}
+            >
+              {" "}
+            </video>
+          </div>
+          <div></div>
+          <div>
+            <video
+              className="birth-video3"
+              src={videoGif3}
+              autoPlay
+              loop
+              muted
+              onClick={() => navigate("/hot-gifts/christmas")}
+            >
+              {" "}
+            </video>
+            <video
+              className="birth-video4"
+              src={videoGif4}
+              autoPlay
+              loop
+              muted
+              onClick={() => navigate("/hot-gifts/valentine-day")}
+            >
+              {" "}
+            </video>
+          </div>
+        </div>
       </div>
 
- <div className="birth-gift" style={{marginBottom:"20px"}}>
+      <div className="birth-gift" style={{ marginBottom: "20px" }}>
         <div> Our Voucher Collection </div>
-      </div> 
+      </div>
       <div>
-        <div style={{width:"95%",margin:"0 auto 80px"}}>
-        <VoucherCards />
+        <div style={{ width: "95%", margin: "0 auto 80px" }}>
+          <VoucherCards />
         </div>
       </div>
     </div>

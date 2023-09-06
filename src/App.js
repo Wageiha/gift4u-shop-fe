@@ -27,6 +27,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import HotGiftsCards from "./components/HotGiftsCards"
 /* import PaymentCustomize from "./components/PaymentCustomize" */
 import BottomNav from "./components/BottomNav";
+import AboutUs from "./components/AboutUs";
 
 
 function App() {
@@ -147,6 +148,7 @@ function App() {
             <Route path="/voucher/search" element={<VoucherSearch />} />
             <Route path="home/voucher/:category" element={<CategoryPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="/:category/:name" element={<SelectVoucherPage />} />
             <Route path="/:category/:name/:id" element={<SelectVoucherPage />} />
             <Route path="/:category/:name/egreeting-card" element={<GreetingCard />} />
@@ -158,7 +160,10 @@ function App() {
           </Routes>
         </div> 
         
+        <div className="Bottom-nav">
         {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" && <BottomNav/>}
+        </div>
+       
         
         {/* {location.pathname !== "/" && <Footer />} */}
       </VoucherContext.Provider>

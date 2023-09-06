@@ -66,7 +66,7 @@ const NavBar = () => {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-               <i class="fa-solid fa-house"> </i> Home
+               <i class="fa-solid fa-house" style={{marginRight:"10px"}}></i>Home
               </NavLink>
             </li>
             {!authenticated && (
@@ -77,7 +77,7 @@ const NavBar = () => {
                   onClick={closeMobileMenu}
                 >
                   {" "}
-                  <i class="fa-solid fa-clipboard-user"> </i> Register  {" "}
+                  <i class="fa-solid fa-clipboard-user" style={{marginRight:"10px"}}></i>Register  {" "}
                 </NavLink>
               </li>
             )}
@@ -89,7 +89,7 @@ const NavBar = () => {
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
-                <i class="fa-solid fa-user"> </i> My Profile 
+                <i class="fa-solid fa-user" style={{marginRight:"10px"}}></i>My Profile 
                 </NavLink>
               </li>
             )}
@@ -101,7 +101,7 @@ const NavBar = () => {
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
-               <i class="fa-solid fa-cart-shopping"></i> Shopping Cart 
+               <i class="fa-solid fa-cart-shopping" style={{marginRight:"10px"}}></i>Shopping Cart 
                 </NavLink>
               </li>
             )}
@@ -112,12 +112,17 @@ const NavBar = () => {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                <i class="fa-solid fa-phone-volume"> </i>Contact Us
+                <i class="fa-solid fa-phone-volume" style={{marginRight:"10px"}}> </i>Contact Us
               </NavLink>
             </li>
             <li className="nav-item">
             <NavLink to="/privacy-policy" className="nav-links" onClick={closeMobileMenu}>
             Privacy Policy
+          </NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink to="/about-us" className="nav-links" onClick={closeMobileMenu}>
+            <i class="fa-regular fa-address-card" style={{marginRight:"10px"}}></i>About Us
           </NavLink>
             </li>
             {authenticated ? (
@@ -127,7 +132,7 @@ const NavBar = () => {
                   className="nav-links"
                   onClick={logoutHandler}
                 >
-                  <i class="fa-solid fa-arrow-right-from-bracket"> </i>Logout
+                  <i class="fa-solid fa-arrow-right-from-bracket" style={{marginRight:"10px"}}></i>Logout
                 </NavLink>
               </li>
             ) : (
@@ -138,7 +143,7 @@ const NavBar = () => {
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
-                  <i class="fa-solid fa-right-to-bracket"> </i>Login
+                  <i class="fa-solid fa-right-to-bracket" style={{marginRight:"10px"}}> </i>Login
                 </NavLink>
               </li>
             )}

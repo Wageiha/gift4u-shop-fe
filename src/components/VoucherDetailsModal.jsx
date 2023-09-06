@@ -52,13 +52,13 @@ navigate(`/${selectedVoucher.category}/${selectedVoucher.name}`)
             </Col>
           </Row>
 
-          <Row style={{marginTop:"20px"}}>
+          <Row style={{margin:"20px auto"}}>
             <p>
               This voucher is available in:{" "}
               <strong>{selectedVoucher?.location?.join(", ")}</strong>
             </p>
           </Row>
-          <Row>
+          <Row style={{margin:"0px auto"}}>
             <p>
               The available prices for that voucher:{" "}
               <strong>{selectedVoucher?.price.map(obj=>obj.cardPrice)?.join(", ")+" €"}</strong>

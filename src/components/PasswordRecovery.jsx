@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import "../Form.css";
+import { motion } from "framer-motion";
 
 function PasswordRecovery() {
   const { email, token } = useParams();
@@ -62,7 +64,14 @@ function PasswordRecovery() {
             placeholder="*********"
             required
           />
-          <button type="submit">Reset Password</button>
+             <motion.button
+          className="m-btn"
+          whileHover={{ scale: 1.2 }}
+          type="submit"
+          style={{width: "100%"}}
+        >
+          Reset Password
+        </motion.button>
         </form>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 </div>}
