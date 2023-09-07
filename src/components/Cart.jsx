@@ -52,6 +52,7 @@ const Cart = () => {
   };
 
   const editECardHandler = (obj) => {
+    console.log(obj);
     navigate(`/${obj.category}/${obj.name}/egreeting-card/${obj.item_id}`);
   };
 
